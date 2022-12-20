@@ -1,0 +1,23 @@
+server:
+  port: 8081
+  
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  datasource: # jdbc
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/workdb?characterEncoding=utf-8
+    username: root
+    password: root1234
+   
+  servlet:  # fileupload
+    multipart:
+      max-file-size: 20MB
+      enabled : true
+        
+mybatis:
+  type-aliases-package: com.login.app.vo
+  mapper-locations: mapper/*Mapper.xml

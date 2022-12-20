@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.campus.myapp.dao.ReplyDAO">
+	<insert id="replyInsert">
+		insert into replyboard(no, userid, comment) 
+		values(#{no}, #{userid}, #{comment})
+	</insert>
+	<select id="replyList" resultType="ReplyVO">
+		select reply_no, no, userid, comment, writedate 
+		from replyboard 
+		where no=${param1} 
+		order by reply_no asc
+	</select>
+	<update id="replyUpdate">
+		update replyboard set comment = #{comment} 
+		where reply_no=${reply_no} and userid=#{userid}
+	</update>
+	<delete id="replyDelete">
+		delete from replyboard where reply_no=${param1} and userid=#{param2}
+	</delete>
+</mapper>
